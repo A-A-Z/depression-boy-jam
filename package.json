@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "gatsby": "^1.9.250",
-    "gatsby-link": "^1.6.40"
+    "gatsby-link": "^1.6.40",
+    "gatsby-plugin-netlify-cms": "^2.0.1",
+    "netlify-cms": "^1.9.3"
   }
 }
