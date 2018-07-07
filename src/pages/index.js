@@ -1,3 +1,9 @@
 import React from "react"
 
-export default () => <div>Hello world!</div>
+export default class IndexPage extends React.Component {
+  render() {
+    return (
+      <div>Depression Boy</div>
+    )
+  }
+}

@@ -1,6 +1,8 @@
 {
-  "name": "gatsby-starter-hello-world",
-  "description": "Gatsby hello world starter",
+  "name": "depression-boy-jam",
+  "description": "Deoression Boy site",
+  "version": "1.0.0",
+  "author": "Paul K Lynch <pkl@artofpkl.com>",
   "license": "MIT",
   "scripts": {
     "develop": "gatsby develop",
