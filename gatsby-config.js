@@ -1,11 +1,12 @@
 module.exports = {
   siteMetadata: {
     title: `Depression Boy`,
-    siteUrl: `http://artofpkl.com`,
+    siteUrl: `https://depressionboy.art`,
     description: `Depression Boy site (jam stack dev)`,
   },
   plugins: [
     `gatsby-plugin-netlify-cms`,
+    `gatsby-plugin-sass`,
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -13,6 +14,6 @@ module.exports = {
         name: 'issues',
       },
     },
-    'gatsby-transformer-remark'
+    `gatsby-transformer-remark`
   ]
 };

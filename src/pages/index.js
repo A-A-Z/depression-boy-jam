@@ -5,12 +5,11 @@ export default class IndexPage extends React.Component {
   render() {
     const { data } = this.props
     const { edges: issues } = data.allMarkdownRemark
-    console.log(data, issues)
 
     return (
       <div>
         <h1>Depression Boy</h1>
-        <ul style={{ display: 'none' }}>
+        <ul>
           {issues.map(({ node: issue }) => {
             const title = issue.frontmatter.title
             return (
