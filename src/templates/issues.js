@@ -1,13 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import Img from 'gatsby-image'
 
-export default function Template({
-  data
-}) {
+export default function Template({ data, pathContext }) {
   const post = data.markdownRemark
   const site = data.site.siteMetadata
+  const { next, prev } = pathContext
   const keywords = post.frontmatter.tags.join(', ')
 
   return (
@@ -23,6 +23,7 @@ export default function Template({
       <h1>{post.frontmatter.title} | {post.frontmatter.word}</h1>
       <p>({post.frontmatter.image})</p>
       <Img resolutions={data.issueImage.resolutions} />
+      <p>{keywords}</p>
     </div>
   )
 }

@@ -7,7 +7,7 @@ const IssuesTemplate = path.resolve(`src/templates/issues.js`)
 
 return graphql(`{
     allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___title] }
+      sort: { order: ASC, fields: [frontmatter___title] }
       limit: 1000
     ) {
       edges {
@@ -25,15 +25,21 @@ return graphql(`{
       if (result.errors) {
         return Promise.reject(result.errors);
       }
-      result.data.allMarkdownRemark.edges
 
-        .forEach(({ node }) => {
+      const issues = result.data.allMarkdownRemark.edges
+
+      issues.forEach(({ node }, index) => {
           const title = node.frontmatter.title
+          const prev = (index === 0 ) ? {} : issues[index - 1].node
+          const next = (index === issues.length - 1) ? {} : issues[index + 1].node
+
           createPage({
             path: node.frontmatter.title,
             component: IssuesTemplate,
-            context: { title, }
-          });
-        });
-    });
+            context: { title, prev, next}
+          })
+        })
+
+        return issues
+    })
 }
