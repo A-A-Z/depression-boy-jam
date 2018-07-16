@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import Img from 'gatsby-image'
 
 export default function Template({
   data
@@ -20,6 +21,8 @@ export default function Template({
         ]}
       />
       <h1>{post.frontmatter.title} | {post.frontmatter.word}</h1>
+      <p>({post.frontmatter.image})</p>
+      <Img resolutions={data.issueImage.resolutions} />
     </div>
   )
 }
@@ -38,6 +41,17 @@ export const pageQuery = graphql`
         title
         word
         tags
+        image
+      }
+    }
+    issueImage: imageSharp(id: { regex: "/001/" }) {
+      resolutions(width: 250, height: 250) {
+        ...GatsbyImageSharpResolutions
+      }
+    }
+    issueImage2: imageSharp(id: { eq: "/images/002.jpg" }) {
+      resolutions(width: 250, height: 320) {
+        ...GatsbyImageSharpResolutions
       }
     }
   }

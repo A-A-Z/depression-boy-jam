@@ -14,6 +14,15 @@ module.exports = {
         name: 'issues',
       },
     },
-    `gatsby-transformer-remark`
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/static/assets`,
+        name: 'images',
+      },
+    },
+    `gatsby-transformer-remark`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`
   ]
-};
+}
