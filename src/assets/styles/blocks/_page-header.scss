@@ -1,0 +1,15 @@
+
+.page-header {
+  align-items: center;
+  display: flex;
+  height: 120px;
+  justify-content: center;
+
+  &__title {
+    font-family: $font-data-trash;
+    font-size: calculateRem(56px);
+    font-weight: normal;
+    letter-spacing: calculateRem(2px);
+    text-transform: uppercase;
+  }
+}

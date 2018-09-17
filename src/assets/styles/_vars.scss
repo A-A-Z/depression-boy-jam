@@ -6,7 +6,25 @@ $colour-white: #ffffff;
 $colour-background: $colour-white;
 
 // font family
+@font-face {
+  font-family: 'Data Trash';
+  src: url($path-fonts + 'DataTrash.eot');
+  src: url($path-fonts + 'DataTrash.eot?#iefix') format('embedded-opentype'),
+      url($path-fonts + 'DataTrash.woff2') format('woff2'),
+      url($path-fonts + 'DataTrash.woff') format('woff'),
+      url($path-fonts + 'DataTrash.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$font-data-trash: 'Data Trash', Verdana, Geneva, sans-serif;
 $font-geo: 'Geo', Verdana, Geneva, sans-serif;
 
 // font sizes
-$font-size-default: 23px;
+$font-size-default: 18px;
+
+// mixins
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return #{$remSize}rem;
+}
