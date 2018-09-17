@@ -11,7 +11,7 @@ export default function Template({ data, pathContext }) {
   const keywords = post.frontmatter.tags.join(', ')
 
   return (
-    <div>
+    <main>
       <Helmet
         title={`${site.title} : ${post.frontmatter.title} | ${post.frontmatter.word}`}
         meta={[
@@ -20,11 +20,18 @@ export default function Template({ data, pathContext }) {
           { name: 'viewport', content: 'width=device-width,initial-scale=1' },
         ]}
       />
-      <h1>{post.frontmatter.title} | {post.frontmatter.word}</h1>
-      <p>({post.frontmatter.image})</p>
-      <Img resolutions={data.issueImage.resolutions} />
-      <p>{keywords}</p>
-    </div>
+
+      <header className='page-header page-header--full'>
+        <h1 className='page-header__title'>Depression Boy</h1>
+      </header>
+
+      <section className='page-block issue-detail'>
+        <h2>{post.frontmatter.title} | {post.frontmatter.word}</h2>
+        <p>({post.frontmatter.image})</p>
+        <Img resolutions={data.issueImage.resolutions} />
+        <p>{keywords}</p>
+      </section>
+    </main>
   )
 }
 

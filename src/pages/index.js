@@ -9,7 +9,7 @@ export default class IndexPage extends React.Component {
     const site = data.site.siteMetadata
 
     return (
-      <div>
+      <main>
         <Helmet
           title={`${site.title}`}
           meta={[
@@ -18,16 +18,22 @@ export default class IndexPage extends React.Component {
             { name: 'viewport', content: 'width=device-width,initial-scale=1' },
           ]}
         />
-        <h1>Depression Boy</h1>
-        <ul>
-          {issues.map(({ node: issue }) => {
-            const title = issue.frontmatter.title
-            return (
-              <li key={`isuee-${title}`}><a href={`/${issue.frontmatter.title}`}>{issue.frontmatter.title} | {issue.frontmatter.word}</a></li>
-            )
-          })}
-        </ul>
-      </div>
+
+        <header className='page-header page-header--full'>
+          <h1 className='page-header__title'>Depression Boy</h1>
+        </header>
+
+        <section className='page-block issue-gallery'>
+          <ul>
+            {issues.map(({ node: issue }) => {
+              const title = issue.frontmatter.title
+              return (
+                <li key={`isuee-${title}`}><a href={`/${issue.frontmatter.title}`}>{issue.frontmatter.title} | {issue.frontmatter.word}</a></li>
+              )
+            })}
+          </ul>
+        </section>
+      </main>
     )
   }
 }

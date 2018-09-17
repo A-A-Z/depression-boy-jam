@@ -1,5 +1,10 @@
-$colour: #F00;
 
-body {
-  color: $colour;
-}
+@import './vars';
+
+// common
+@import './global';
+@import './layout';
+@import './type';
+
+// componets
+@import './components/head';
